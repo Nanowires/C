@@ -110,7 +110,7 @@ void SendEnde(){
 int main(int argc, char *argv[])
 {
 	wiringPiSetup();	//Startet WiringPi
-	piHiPri(1);	//Erhöht die Priorität des Programms
+	piHiPri(1);	//ErhÃ¶ht die PrioritÃ¤t des Programms
 
 /*Pin als Hardwareclock, falls dies aktiviert ist muss man in SendAn() die Schleife auskommentieren und den Kommentar vor delayMicroseconds() entfernen.
 	gpioClockSet(LED, Freq);	*/
