@@ -112,11 +112,13 @@ int main(int argc, char *argv[])
 	wiringPiSetup();	//Startet WiringPi
 	piHiPri(1);	//Erhöht die Priorität des Programms
 
-/*Pin als Hardwareclock, falls dies aktiviert ist muss man in SendAn() die Schleife auskommentieren und den Kommentar vor delayMicroseconds() entfernen.
+        /*Pin als Hardwareclock, falls dies aktiviert ist muss man in SendAn() die Schleife auskommentieren und den Kommentar vor delayMicroseconds() entfernen.
 	gpioClockSet(LED, Freq);	*/
 	pinMode (LED, OUTPUT);
 	digitalWrite(LED,Aus);
 	int i;
+	
+	//Schleife zum Ausgleichen der Fehlerrate
 	for(i=0;i<10;i++){
 		SendAnfang();
 		SendPower();
