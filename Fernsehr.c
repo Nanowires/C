@@ -22,7 +22,7 @@
 
 #include <stdio.h>
 #include <wiringPi.h>
-#include "piHipri.h"
+#include "piHiPri.h"
 
 #define LED 7
 #define Anfang 4400 //2000
