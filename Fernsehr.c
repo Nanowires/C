@@ -40,7 +40,6 @@
 void SendAn(int us) {
 	int i;
 	digitalWrite(LED,An);
-	//delayMicroseconds(us);
 	for (i=0;i<(us/26);i++) {
 		digitalWrite(LED, An);
 		delayMicroseconds(Clk);
@@ -53,12 +52,8 @@ void SendAn(int us) {
 void SendEins(int j) {
 	int i;
 	for(i=0;i<j;i++){
-		//pinMode(LED, GPIO_CLOCK);
-	//digitalWrite (LED,An);
-		//delayMicroseconds(Logik);
 		SendAn(Logik);
 		digitalWrite(LED,Aus);
-		//pinMode(LED, OUTPUT);
 		delayMicroseconds(Eins);
 	}
 }
@@ -67,12 +62,8 @@ void SendEins(int j) {
 void SendNull(int j) {
 	int i;
 	for(i=0;i<j;i++) {
-		//pinMode(LED, GPIO_CLOCK);
-	//digitalWrite (LED,An);
-		//delayMicroseconds(Logik);
 		SendAn(Logik);
 		digitalWrite(LED,Aus);
-		//pinMode(LED, OUTPUT);
 		delayMicroseconds(Null);
 	}
 }
@@ -80,13 +71,8 @@ void SendNull(int j) {
 //Sendet das Anfangssignal
 void SendAnfang() {
 	int j;
-	//pinMode(LED, GPIO_CLOCK);
-	//digitalWrite (LED,An);
-	//delayMicroseconds(Anfang);
 	SendAn(Anfang);
-	//SendAus(Anfang);
 	digitalWrite(LED,Aus);
-	//pinMode(LED, OUTPUT);
 	delayMicroseconds(Anfang_Null);
 	for(j=0;j<2;j++) {
 		SendEins(3);
@@ -111,9 +97,6 @@ int main(int argc, char *argv[])
 {
 	wiringPiSetup();	//Startet WiringPi
 	piHiPri(1);	//Erhöht die Priorität des Programms
-
-        /*Pin als Hardwareclock, falls dies aktiviert ist muss man in SendAn() die Schleife auskommentieren und den Kommentar vor delayMicroseconds() entfernen.
-	gpioClockSet(LED, Freq);	*/
 	pinMode (LED, OUTPUT);
 	digitalWrite(LED,Aus);
 	int i;
