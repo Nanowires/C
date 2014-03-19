@@ -3,3 +3,5 @@ Raspberry Projekte mit C
 Die Pinbelegung ist unter http://wiringpi.com/pins/ zu finden.
 
 Mit dem Programm Fernsehr.c kann ein Samsung TV mit hilfe einer IR-Diode an/aus geschaltet werden. Hierfür wird die Bibliothek piHiPri.h benötigt.
+
+Bei Fernsehr2.c wird eine externe Clock benötigt. Dies ist dann eine erweiterte Version von Fernsehr.c. Die Schlatung kann http://raspberrydoku.wordpress.com/wp-admin/post-new.php entnommen werden.
