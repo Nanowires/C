@@ -11,3 +11,5 @@ sudo ./Fernsehr2 -List
 die möglichen Befehle anzeigen lassen und mit
 sudo ./Fernsehr2 -Befehl -"Anzahl der Wiederholungen"
 den jeweiligen Befehl ausführen. Hierbei ist der Parameter "Anzahl der Wiederholungen" die Anzahl wie oft der Befehl schnell wiederholt wird um die Fehlerrate zu senken, nicht um den Befehl öffters auszuführen! Diesen Parameter kann man auch weglassen.
+
+In der Datei Sprache.c muss das Wörterbuch in der Main() Methode angepasst werden, außerdem benötigt dies die Datei fernsehr2.h
