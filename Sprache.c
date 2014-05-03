@@ -16,6 +16,7 @@
 
 #include <pocketsphinx.h>
 #include "Fernsehr2.h"
+#include "Funk.h" //Für Funkfernbedienung
 
 static const arg_t cont_args_def[] = {
     POCKETSPHINX_OPTIONS,
@@ -167,6 +168,8 @@ recognize_from_microphone()
 			if(strstr(string2,"RASPBERRY")){
 				if(strstr(string2, "RASPBERRY TV ")) //Bedingung, dass kein leeres hyp weitergeleitet wird
 				fernsehr(string2);
+				if(strstr(string2,"TURN SOCKET ON") || strstr(string2,"TURN SOCKET OFF")) //Für die Funkfernbedieunung
+				funk(string2);
 			}
 		}		
 
