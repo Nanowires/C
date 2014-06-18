@@ -1,8 +1,3 @@
-﻿
-
-
-
-
 // hy18spi.c
 //
 // Example program for HY-1.8 SPI LCD using bcm2835 library.
