@@ -1,49 +1,13 @@
-#include <hy18spi.h>
+//Kompilieren mit: gcc -o BSP BSP.c -lbcm2835  
+
+#include "hy18spi.h"
 
 int main(int argc, char **argv)
 {
    unsigned int pin;
    int x,y;
 	
-// If you call this, it will not actually access the GPIO
-// Use for testing
-//        bcm2835_set_debug(1);
-
-    // intialize bcm2835 library
-    if (!bcm2835_init())
-        return 1;
-
-    // initialize spi
-    bcm2835_spi_begin();
-    bcm2835_spi_setBitOrder(BCM2835_SPI_BIT_ORDER_MSBFIRST);      // The default
-    bcm2835_spi_setDataMode(BCM2835_SPI_MODE3);                   // MODE 3
-///    bcm2835_spi_setDataMode(BCM2835_SPI_MODE0);                   // The default
-/// NOT OK    bcm2835_spi_setClockDivider(BCM2835_SPI_CLOCK_DIVIDER_4); //< 4 = 16ns = 62.5MHz
-/// OK
-    bcm2835_spi_setClockDivider(BCM2835_SPI_CLOCK_DIVIDER_8); //< 8 = 32ns = 31.25MHz
-/// OK   bcm2835_spi_setClockDivider(BCM2835_SPI_CLOCK_DIVIDER_16); //< 16 = 64ns = 15.625MHz
-/// OK   bcm2835_spi_setClockDivider(BCM2835_SPI_CLOCK_DIVIDER_32); //< 32 = 128ns = 7.8125MHz
-/// OK   bcm2835_spi_setClockDivider(BCM2835_SPI_CLOCK_DIVIDER_64); //< 64 = 256ns = 3.90625MHz - 4000000 spi clock
-/// OK   bcm2835_spi_setClockDivider(BCM2835_SPI_CLOCK_DIVIDER_65536); // The default
-    bcm2835_spi_chipSelect(BCM2835_SPI_CS0);                      // The default
-    bcm2835_spi_setChipSelectPolarity(BCM2835_SPI_CS0, LOW);      // the default
-
-    // initialize gpio
-    hy18spi_init_gpio();
-
-// pin testing - uncomment one line here and from bcm2835_gpio_fsel to do{...}while(1); loop
-// 6 OK pin = RPI_V2_GPIO_P1_22; // RESET - GPIO25
-// 7 OK pin = RPI_V2_GPIO_P1_18; // A0 - GPIO24
-// 8 OK pin = RPI_V2_GPIO_P1_19; // SDA - GPIO10 MOSI
-// 9 OK pin = RPI_V2_GPIO_P1_23; // SCK - GPIO11 SCLK
-// 10 OK pin = RPI_V2_GPIO_P1_24; // CS - GPIO8 CE0
-//    bcm2835_gpio_fsel(pin, BCM2835_GPIO_FSEL_OUTP);
-//    do {
-//       bcm2835_gpio_clr(pin);
-//       delay(5);
-//       bcm2835_gpio_set(pin);
-//       delay(5);
-//    } while(1);
+startTft();
 
     // initialize display
     hy18spi_init();
