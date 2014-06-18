@@ -1,4 +1,6 @@
 //Kompilieren mit: gcc -o BSP BSP.c -lbcm2835  
+/* Unter Umständen muss noch die Bibliothek bcm2835 vorher installiert werden.
+*/
 
 #include "hy18spi.h"
 
